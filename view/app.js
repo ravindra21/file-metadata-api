@@ -8,13 +8,10 @@ function uploadFile(f){
 	var formData = new FormData();
 	var url = 'upload';
 
-	console.log('hjhjhjh');
-
 	formData.append('data',f);
 	http.open('POST',url,true);
 	http.send(formData);
 	http.onload = function(){
-		console.log('blalalal')
 		resultDisplay.innerHTML=this.responseText;
 	}
 }
@@ -22,9 +19,7 @@ function uploadFile(f){
 submit.addEventListener('click',function(){
 	if(fileInput.files.length>0){
 		uploadFile(fileInput.files[0]);
-		console.log(fileInput.files[0]);
-		console.log('afer');
 	}else{
-		console.log('kamfer');
+		console.log('no file found');
 	}
 });
